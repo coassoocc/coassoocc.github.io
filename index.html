@@ -2,7 +2,7 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title> Coopernaut: End-to-End Driving with Cooperative Perception for Networked Vehicles</title>
+  <title> Refining the Invisible: Cooperative Occlusion-Aware Planning for Connected and Automated Vehicles via Reachability Analysis</title>
 
   <meta property="og:title" content="TITLE" />
 
@@ -96,8 +96,7 @@
 
   <div id="primarycontent">
     <center>
-      <h1><strong>Cooperative Occlusion Awareness in Trajectory planning for Connected and Automated Vehicles based on
-          Reachable Set Prediction</strong></h1>
+      <h1><strong>Refining the Invisible: Cooperative Occlusion-Aware Planning for Connected and Automated Vehicles via Reachability Analysis</strong></h1>
     </center>
 
     <center>
@@ -128,13 +127,24 @@
           </tr>
         </tbody>
       </table> -->
+<!--      <div style="display: flex;">-->
+<!--        <div class="pic-item" style="width: 40%;">-->
+<!--          <img src="./images/welcone_intro_page-0001.jpg" width="100%" height="100%" alt="">-->
+<!--          <p>Scenarios of interest</p>-->
+<!--        </div>-->
+<!--        <div class="pic-item" style="width: 60%;border-left: solid 2px rgb(0, 0, 82);">-->
+<!--          <img src="./images/proposed_method_overview_page-0001.jpg" width="100%" height="100%" alt="">-->
+<!--          <p>Proposed Method</p>-->
+<!--        </div>-->
+<!--      </div>-->
+
       <div style="display: flex;">
         <div class="pic-item" style="width: 40%;">
-          <img src="./images/left_img.jpg" width="100%" height="100%" alt="">
+          <img src="./images/welcone_intro_page-0001.jpg" style="width:100%; height:auto;" alt="">
           <p>Scenarios of interest</p>
         </div>
-        <div class="pic-item" style="width: 60%;border-left: solid 2px rgb(0, 0, 82);">
-          <img src="./images/right_img.jpg" width="100%" height="100%" alt="">
+        <div class="pic-item" style="width: 60%; border-left: solid 2px rgb(0, 0, 82);">
+          <img src="./images/proposed_method_overview_page-0001.jpg" style="width:100%; height:auto;" alt="">
           <p>Proposed Method</p>
         </div>
       </div>
@@ -147,10 +157,11 @@
             <tr>
               <td>
                 <left>
-                  Occlusion-aware planning with cooperative perception. CAVs can mitigate occlusions by sharing perception information. Since CAVscannot always 
-maintain optimal perception perspectives, traffic participantsmay still lie within their shared occlusions simultaneously. By tracking residual occlusions within the shared FoV, the feasible states of potential hidden traffic participants can be refined, thereby assisting CAVs intrajectory planning and 
-achieving an enhanced balance between traffic safety and efficiency. During this process, numerous and spatially sparse occlusions and intermittently 
-visible traffic participants need to be handled.
+                  Occlusion-aware planning with cooperative perception. CAVs can mitigate occlusions by sharing perception information.
+                  Since CAVscannot always maintain optimal perception perspectives, traffic participantsmay still lie within their shared occlusions simultaneously.
+                  By tracking residual occlusions within the shared FoV, the feasible states of potential hidden traffic participants can be refined,
+                  thereby assisting CAVs intrajectory planning and achieving an enhanced balance between traffic safety and efficiency.
+                  During this process, numerous and spatially sparse occlusions and intermittently visible traffic participants need to be handled.
                 </left>
               </td>
             </tr>
@@ -162,15 +173,16 @@ visible traffic participants need to be handled.
         <hr />
         <h1 align="center">Abrstact</h1>
                 <left>
-                  Achieving safe and efficient navigation in urban environments, where occlusions frequently occur, remains a persistent challenge for autonomous 
-driving. In response, cooperative perceptionprovides an effective means to enhance perception capabilities and mitigate occlusions. Despite recent 
-progress, the subsequent inference of motion states for potential traffic participants within residual occlusions shared across multiple agents has received limited attention, where the amount and sparsity of occlusion growth.    In this paper, considering these issues, we propose a cooperative occlusion 
-awareness model that performs occlusion tracking to narrow the feasible state space of potential participants for reachability analysis, facilitating less 
-conservative behavior while maintaining safety. By analyzing the variations of occlusions within the shared field of view of multiple connected agents 
-across frames, as well as their interactionswith surrounding traffic participants,the existence intervals and velocity bounds of potentially participants are refined. The proposed model consists of three sequential modules, including occlusion modeling for the potential traffic participantstates, occlusion 
-associationfor discovering correspondences between occlusions across frames and surrounding traffic participants,as well asstate refinement for 
-eliminating unreachable states.    Simulations across diverse occlusion scenarios demonstrate the effectiveness and generalizability of the proposed 
-model over baselines relying solely on onboard sensors or object-level fusion.
+                  Achieving safe and efficient navigation in urban environments, where occlusions frequently occur, remains a persistent challenge for autonomous driving.
+                  Cooperative perception (CP) provides an effective way to enhance perception and mitigate occlusions.
+                  Nevertheless, for collision avoidance with potential hidden traffic participants (TPs) within residual occlusions shared among multiple connected agents,
+                  most studies still follow the worst-case assumption, forcing agents to remain overly conservative.
+                  In this paper, we propose a cooperative occlusion awareness model, considering numerous and spatially sparse occlusions in CP,
+                  as well as the impact of communication issues during information fusion for handling occlusions.
+                  It leverage shared perception information to perform occlusion tracking, aiming to refine the feasible state space of potential hidden TPs including both existence intervals and speed bounds,
+                  facilitating less conservative behavior while maintaining safety. The model first performs occlusion modeling to initialize potential hidden TP states within residual occlusions,
+                  then applies occlusion association to capture correspondences between occlusions across frames and surrounding TPs, and finally refines the state space by eliminating unreachable states based on the cooperatively perceived road context revealed through the association results.
+                  Simulations across diverse occlusion scenarios demonstrate the effectiveness of the proposed model over baselines relying solely on onboard sensors or object-level fusion, as well as its robustness to communication issues containing sensor position and pose errors, delays and interruptions.
                 </left>
 
 
@@ -185,27 +197,27 @@ model over baselines relying solely on onboard sensors or object-level fusion.
             <tr>
               <td align="center">
                 <video muted="" autoplay="" loop=""controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/worst/town02_tinter_norm.webm" type="video/mp4" />
                 </video>
                 <b>Single-Baseline</b>
               </td>
 
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town02_tinter_norm.webm" type="video/mp4" />
                 </video>
                 <b>Proposed</b>
               </td>
 
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/worst/town06_ramp.webm" type="video/mp4" />
                 </video>
                 <b>Single-Baseline</b>
               </td>
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town06_ramp.webm" type="video/mp4" />
                 </video>
                 <b>Proposed</b>
               </td>
@@ -221,14 +233,14 @@ model over baselines relying solely on onboard sensors or object-level fusion.
             <tr style="display: flex;gap: 10px;">
               <td align="center" style="flex: 1;">
                 <video muted="" autoplay="" loop=""controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/worst/town06_lanechange.webm" type="video/mp4" />
                 </video>
                 <b>Single-Baseline</b>
               </td>
 
               <td align="center" style="flex: 1;">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town06_lanechange.webm" type="video/mp4" />
                 </video>
                 <b>Proposed</b>
               </td>
@@ -248,27 +260,27 @@ model over baselines relying solely on onboard sensors or object-level fusion.
             <tr>
               <td align="center">
                 <video muted="" autoplay="" loop=""controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/baseline/town05_norm.webm" type="video/mp4" />
                 </video>
                 <b>Single-Baseline</b>
               </td>
 
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town05_norm.webm" type="video/mp4" />
                 </video>
                 <b>Proposed</b>
               </td>
 
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/baseline/town10hd_norm.webm" type="video/mp4" />
                 </video>
                 <b>Single-Baseline</b>
               </td>
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town10hd_norm.webm" type="video/mp4" />
                 </video>
                 <b>Proposed</b>
               </td>
@@ -279,112 +291,112 @@ model over baselines relying solely on onboard sensors or object-level fusion.
         <hr />
         <h1 align="center">Effectiveness Validation (proposed method) under Different Numbers of Background TPs/CAVs</h1>
         <div style="display: flex;">
-          <div style="width: 50%;"><b>Town 05 (different number of Background TPs)</b></div>
-          <div style="width: 50%;"><b>Town 10 HD (different number of Background TPs)</b></div>
+          <div style="width: 50%;"><b>Town 05 (Background TPs = 5, 15, 25, 35)</b></div>
+          <div style="width: 50%;"><b>Town 10 HD (Background TPs = 5, 15, 25, 35)</b></div>
         </div>
         <table border="0" cellspacing="10" cellpadding="0" align="center" style="overflow: hidden;">
           <tbody>
             <tr>
               <td align="center">
                 <video muted="" autoplay="" loop=""controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town05_bgnum_5.webm" type="video/mp4" />
                 </video>
               </td>
 
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town05_bgnum_15.webm" type="video/mp4" />
                 </video>
               </td>
 
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town10hd_bgnum_5.webm" type="video/mp4" />
                 </video>
               </td>
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town10hd_bgnum_15.webm" type="video/mp4" />
                 </video>
               </td>
             </tr>
             <tr>
               <td align="center">
                 <video muted="" autoplay="" loop=""controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town05_bgnum_25.webm" type="video/mp4" />
                 </video>
               </td>
 
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town05_bgnum_35.webm" type="video/mp4" />
                 </video>
               </td>
 
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town10hd_bgnum_25.webm" type="video/mp4" />
                 </video>
               </td>
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town10hd_bgnum_35.webm" type="video/mp4" />
                 </video>
               </td>
             </tr>
           </tbody>
         </table>
         <div style="display: flex;">
-          <div style="width: 50%;"><b>Town 05 (different number of CAVs)</b></div>
-          <div style="width: 50%;"><b>Town 10 HD (different number of Background CAVs)</b></div>
+          <div style="width: 50%;"><b>Town 05 (CAVs = 3, 4, 5, 6)</b></div>
+          <div style="width: 50%;"><b>Town 10 HD (CAVs = 3, 4, 5, 6)</b></div>
         </div>
         <table border="0" cellspacing="10" cellpadding="0" align="center" style="overflow: hidden;">
           <tbody>
             <tr>
               <td align="center">
                 <video muted="" autoplay="" loop=""controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town05_cavnum_1.webm" type="video/mp4" />
                 </video>
               </td>
 
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town05_cavnum_2.webm" type="video/mp4" />
                 </video>
               </td>
 
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town10hd_cavnum_1.webm" type="video/mp4" />
                 </video>
               </td>
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town10hd_cavnum_2.webm" type="video/mp4" />
                 </video>
               </td>
             </tr>
             <tr>
               <td align="center">
                 <video muted="" autoplay="" loop=""controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town05_cavnum_3.webm" type="video/mp4" />
                 </video>
               </td>
 
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town05_cavnum_4.webm" type="video/mp4" />
                 </video>
               </td>
 
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town10hd_cavnum_3.webm" type="video/mp4" />
                 </video>
               </td>
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town10hd_cavnum_4.webm" type="video/mp4" />
                 </video>
               </td>
             </tr>
@@ -393,130 +405,134 @@ model over baselines relying solely on onboard sensors or object-level fusion.
         <hr />
         <h1 align="center">Robustness on Communication Issues</h1>
         <div style="display: flex;">
-          <div style="width: 100%;"><b>Town 10 HD (SPaPError)</b></div>
+          <div style="width: 100%;"><b>Town 10 HD (SPaPError = 0.0, 0.2, 0.4, 0.6, 0.8, 1.0)</b></div>
         </div>
         <table border="0" cellspacing="10" cellpadding="0" align="center" style="overflow: hidden;">
           <tbody>
             <tr>
               <td align="center">
                 <video muted="" autoplay="" loop=""controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town10hd_poseerror_0.0.webm" type="video/mp4" />
                 </video>
               </td>
 
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town10hd_poseerror_0.2.webm" type="video/mp4" />
                 </video>
               </td>
 
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town10hd_poseerror_0.4.webm" type="video/mp4" />
+                </video>
+              </td>
+
+              <td align="center">
+                <video muted="" autoplay="" loop="" controls="" width="100%">
+                  <source src="./images/proposed/town10hd_poseerror_0.6.webm" type="video/mp4" />
+                </video>
+              </td>
+
+              <td align="center">
+                <video muted="" autoplay="" loop="" controls="" width="100%">
+                  <source src="./images/proposed/town10hd_poseerror_0.8.webm" type="video/mp4" />
+                </video>
+              </td>
+
+              <td align="center">
+                <video muted="" autoplay="" loop="" controls="" width="100%">
+                  <source src="./images/proposed/town10hd_poseerror_1.0.webm" type="video/mp4" />
+                </video>
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+        <div style="display: flex;">
+          <div style="width: 100%;"><b>Town 10 HD (Delay = 0ms, 100ms, 200ms, 300ms, 400ms, 500ms)</b></div>
+        </div>
+        <table border="0" cellspacing="10" cellpadding="0" align="center" style="overflow: hidden;">
+          <tbody>
+            <tr>
+              <td align="center">
+                <video muted="" autoplay="" loop=""controls="" width="100%">
+                  <source src="./images/proposed/town10hd_delay_0.webm" type="video/mp4" />
+                </video>
+              </td>
+
+              <td align="center">
+                <video muted="" autoplay="" loop="" controls="" width="100%">
+                  <source src="./images/proposed/town10hd_delay_100.webm" type="video/mp4" />
+                </video>
+              </td>
+
+              <td align="center">
+                <video muted="" autoplay="" loop="" controls="" width="100%">
+                  <source src="./images/proposed/town10hd_delay_200.webm" type="video/mp4" />
                 </video>
               </td>
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town10hd_delay_300.webm" type="video/mp4" />
                 </video>
               </td>
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town10hd_delay_400.webm" type="video/mp4" />
                 </video>
               </td>
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town10hd_delay_500.webm" type="video/mp4" />
                 </video>
               </td>
             </tr>
           </tbody>
         </table>
         <div style="display: flex;">
-          <div style="width: 100%;"><b>Town 10 HD (Delay)</b></div>
+          <div style="width: 100%;"><b>Town 10 HD (Interruption, packet loss rate = 0%, 15%, 30%, 45%, 60%, 75%)</b></div>
         </div>
         <table border="0" cellspacing="10" cellpadding="0" align="center" style="overflow: hidden;">
           <tbody>
             <tr>
               <td align="center">
                 <video muted="" autoplay="" loop=""controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town10hd_interruption_0.webm" type="video/mp4" />
                 </video>
               </td>
 
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town10hd_interruption_15.webm" type="video/mp4" />
                 </video>
               </td>
 
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town10hd_interruption_30.webm" type="video/mp4" />
                 </video>
               </td>
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town10hd_interruption_45.webm" type="video/mp4" />
                 </video>
               </td>
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town10hd_interruption_60.webm" type="video/mp4" />
                 </video>
               </td>
               <td align="center">
                 <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
-                </video>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <div style="display: flex;">
-          <div style="width: 100%;"><b>Town 10 HD (Interruption)</b></div>
-        </div>
-        <table border="0" cellspacing="10" cellpadding="0" align="center" style="overflow: hidden;">
-          <tbody>
-            <tr>
-              <td align="center">
-                <video muted="" autoplay="" loop=""controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
-                </video>
-              </td>
-
-              <td align="center">
-                <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
-                </video>
-              </td>
-
-              <td align="center">
-                <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
-                </video>
-              </td>
-              <td align="center">
-                <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
-                </video>
-              </td>
-              <td align="center">
-                <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
-                </video>
-              </td>
-              <td align="center">
-                <video muted="" autoplay="" loop="" controls="" width="100%">
-                  <source src="./images/town02_tinter.webm" type="video/mp4" />
+                  <source src="./images/proposed/town10hd_interruption_75.webm" type="video/mp4" />
                 </video>
               </td>
             </tr>
           </tbody>
         </table>
         <hr />
-        <h1 id="dataset" align="center">Citation(In Future..)</h1>
+        <h1 id="dataset" align="center">Citation(In Future; Code Link: )</h1>
         </p>
       </div>
     </center>
